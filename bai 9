@@ -1,0 +1,20 @@
+#include <stdio.h>
+ int main(){
+ 	int a,b;
+ 	printf("nhap thang,nam:"); scanf("%d %d",&a,&b);
+ 	switch (a){
+ 		case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+ 		    printf("thang %d nam %d co 31 ngay",a,b);break;
+ 		case 4:case 6:case 9:case 11:
+ 			printf("thang %d nam %d co 30 ngay",a,b);	break;
+ 		case 2:
+ 			if ((b%400==0)||((b%4==0)&&(b%100!=0))){
+ 				printf("thang %d nam %d co 29 ngay",a,b);break;
+			}
+			else {
+				printf("thang %d nam %d co 28 ngay",a,b);break;
+			}
+ 		default : printf("du lieu ko hop le");break;
+	 }
+	return 0;
+ }
