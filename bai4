@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+     double r;
+     float pi= 3.141592;
+     printf("ban kinh hinh cau=");
+     scanf("%lf",&r);
+     double dientich= 4*pi*pow(r,2);
+     double thetich= (4.0/3)*pi * pow(r,3);
+     printf("dien tich hinh cau=%.2lf\nthe tich hinh cau=%.2lf",dientich,thetich);
+     return 0 ;
+
+}
