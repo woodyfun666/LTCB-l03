@@ -1,4 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h> 
 #include <math.h>
+
 int main()
+{
+    double x ;
+    printf("nhap x:");
+    scanf("%lf",&x);
+    double binhphuong= pow(x,2),xmuba=pow(x,3),xmubon=pow(x,4);
+    printf("x^2=%.2lf\nx^3=%.2lf\nx^4=%.2lf",binhphuong,xmuba,xmubon);
+    return 0 ;
+}
