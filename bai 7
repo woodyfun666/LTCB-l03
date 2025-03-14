@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main (){
+	float a;
+	printf("DTB="); scanf("%f",&a);
+	printf("hoc luc :");
+	if ((a>=0)&&(a<5)){
+		printf("yeu");
+	}
+	else if ((a>=5)&&(a<7)){
+		printf("TB");
+	}
+	else if ((a>=7)&&(a<8)){
+		printf("kha");
+	}
+	else if ((a>=8)&&(a<9)){
+		printf("gioi");
+	}
+	else if ((a>=9)&&(a<=10)){
+		printf("xuat sac");
+	}
+	else {
+		printf("du lieu ko hop le");
+	}
+	return 0;
+}
