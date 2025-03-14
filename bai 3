@@ -1,0 +1,17 @@
+#include <stdio.h>
+ int main()
+ { 
+    int x ,y;
+    printf("x,y=");
+    scanf("%d,%d",&x,&y);
+    int tong = x+y,hieu=x-y,tich=x*y;
+	  double thuong= 1.0*x/y;
+    printf("tong=%d \nhieu=%d \ntich=%d \n",tong,hieu,tich);
+    if (y==0){
+    	  printf("ko co thuong");
+	  }
+    else{
+    	  printf("thuong=%.2lf",thuong);
+	  }
+    return 0;
+ }
