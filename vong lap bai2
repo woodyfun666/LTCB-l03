@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main(){
+  long long a;
+	printf("nhap so:");scanf("%lld",&a);
+  int souoc=0;
+  if (a<2){
+    	printf("ko phai so nguyen to");
+	}
+	else{
+		for (int i =1;i<=a;i++){
+			if (a%i==0){
+				souoc+=1;
+				if (souoc>2){
+					printf("ko l so nguyen to");break;
+				}
+			}
+		}
+		if (souoc==2){
+			printf("la so nguyen to");
+		}
+	}
+  return 0;
+}
