@@ -1,0 +1,12 @@
+#include<stdio.h>
+ int main(){
+ 	long long n,f1=1,f2=1,fn;
+ 	scanf("%lld",&n);
+ 	for(int i=3;i<=n;i++){
+ 		fn=f1+f2;
+ 		f1=f2;
+ 		f2=fn;
+	}
+	printf("so fibonacci thu %lld trong day la : %lld",n,f2);
+	return 0;
+}
