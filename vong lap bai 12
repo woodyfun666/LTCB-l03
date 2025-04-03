@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include<math.h>
+
+int main(){
+	float x,eps,sin=0,n=0, giaithua=1,p;
+	printf("x=") ;scanf("%f",&x);
+	printf("eps=") ;scanf("%f",&eps);
+	x= x* 3.14/180;
+	do{ 
+	  for(int m=1;m<= 2*n+1;m++)
+	    giaithua*=m;
+	  p= pow(-1,n)*pow(x,2*n+1)/giaithua;
+	  sin=sin + p;
+	  n++;
+	}
+	while (fabs(p)>eps);
+	printf ("sin=%f",sin);
+	return 0;
+}
