@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main(){
+	double a;
+	int n;
+	printf("so tien gui la:");scanf("%lf",&a);
+	printf("so thang gui la:");scanf("%d",&n);
+  for(int i=1;i<=n;i++)
+    	a*=1.0045;
+	printf("so tien ng do rut ra dc sau %d thang la: %.2lf",n,a);
+	return 0;
+}
