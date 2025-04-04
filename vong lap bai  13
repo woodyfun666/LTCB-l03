@@ -5,13 +5,13 @@ int main(){
   float x,eps,giaithua=1,e_mu_x=1,p;
   int n=1;
   printf("x=") ;scanf("%f",&x);
-  printf("eps=") ;scanf("%f",&eps);
-	do{
-		giaithua*=n;
-	  p=pow(x,n)/giaithua;
-	  e_mu_x+=p;
-    n++;
-	}while (p>=eps);
-	printf("e mu x=%f",e_mu_x);
-	return 0;
+  printf("eps=");scanf("%f",&eps);
+  do{
+	giaithua*=n;
+	p=pow(x,n)/giaithua;
+	e_mu_x+=p;
+        n++;
+  }while (p>=eps);
+  printf("e mu x=%f",e_mu_x);
+  return 0;
 }
