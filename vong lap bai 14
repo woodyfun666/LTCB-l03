@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main(){
+	float tong,tocdo;
+	int nam=2014;
+	printf("tong thu nhap GDP nc ta namw 2014:");scanf("%f",&tong);
+	float tongx2= tong *2;
+	printf("toc do tang truong binh quan tren 1 nam :");scanf("%f",&tocdo);
+	printf("\n        Nam           GDP(ty USD)");
+	do{
+        printf("\n        %d          %.2f",nam,tong);
+	      nam++;
+		    tong*=((100+tocdo)/100);
+	      if (tong>tongx2){
+	    	   printf("\n        %d          %.2f",nam,tong);
+		    }
+	}while (tong<=tongx2);
+	return 0;
+}
