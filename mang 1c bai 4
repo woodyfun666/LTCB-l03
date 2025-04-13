@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+int main(){
+	int n,stt1,stt2;
+	scanf("%d",&n);
+	int a[n];
+	printf("nhap mang :");
+	for (int i=0;i<n;i++)  scanf("%d",&a[i]);
+	int max=a[0],min=a[0];
+	for(int i=0;i<n;i++){
+		if (a[i]>max){
+			max = a[i];
+			stt1=i;
+		}
+		if (min >= a[i]) {
+		    min =a[i];
+		    stt2=i;
+		}
+	}
+	printf("max=%d,",max);printf("i=%d\n",stt1);
+    printf("min=%d,",min);printf("i=%d",stt2);
+	return 0;
+}
