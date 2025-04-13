@@ -1,0 +1,22 @@
+include<stdio.h>
+
+int main(){
+	int n,m=0,b=0,c=0;
+	scanf("%d",&n);
+	int a[n];
+	for (int i=0;i<n;i++)  scanf("%d",&a[i]);
+	for(int i=0;i<n;i++){
+		m+=a[i];
+		if (a[i]>0){
+			b+=a[i];
+		}
+		else c+=a[i];
+	}
+	printf("tong cac so trong mang la %d\n",m);
+	printf("tong cac so duong trong mang la %d\n",b);
+    printf("tong cac so am trong mang la %d\n",c); 
+    printf("tbc cac so trong mang la %.2f\n",1.0*m/n);
+    printf("tbc cac so duong trong mang la %.2f\n",1.0*b/n);
+    printf("tbc cac so am trong mang la %.2f\n",1.0*c/n);
+	return 0;
+}
