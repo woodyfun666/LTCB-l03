@@ -1,0 +1,32 @@
+#include<stdio.h>
+int main(){
+	int m,n,p,k;
+	printf("so hang, so cot MT A=");
+	scanf ("%d %d",&n,&m);
+	printf("so hang, so cot MT B=");
+	scanf ("%d %d",&k,&p);
+	long long a[n][m],b[k][p],c[n][p]={0};
+	if(k!=m) printf("ko cos phep nhan ma tran");
+	else {
+      printf("so hang, so cot MT C=A*B=%d,%d\n",n,p);
+	  printf("A=\n");
+  	  for (int i=0;i<n;i++){
+		for (int j =0;j<m;j++) scanf("%lld",&a[i][j]);
+	  }
+	  printf("B=\n");
+	  for (int i=0;i<k;i++){
+		for (int j=0;j<p;j++) scanf("%lld",&b[i][j]);
+	  }
+	  printf("C=\n");
+	  for (int i = 0; i < n; i++)
+        for (int j = 0; j < p; j++)
+            for (int l = 0; l < m; l++)
+                c[i][j] += a[i][l] * b[l][j];
+    }
+	  for (int i=0;i<n;i++){
+		for (int j =0;j<p;j++) printf("%lld ",c[i][j]);
+	  	printf("\n");
+	  }
+ 
+	return 0;
+	}
