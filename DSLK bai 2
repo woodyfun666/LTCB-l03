@@ -1,0 +1,174 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+ typedef struct Sinhvien{
+	char hoten[100];
+	int tuoi;
+	double diem;
+} sv;
+
+ 
+ struct Node {
+ 	sv data;
+ 	struct Node *next;
+ }; typedef struct Node node;
+ 
+
+void tao_ds(node **head){
+	char hoten[50],chon;int tuoi, stt=0;
+	double diemtb;
+	printf("NHAP DS SV \n");
+	do{
+		fflush(stdin);
+		printf("Nhap thong tin ve sinh vien thu %d: \n",++stt);
+        printf("Nhap ho va ten: ");
+        gets(hoten);
+        printf("nhap tuoi:");
+        scanf("%d",&tuoi);
+        printf ("nhap diem tb:");
+        scanf("%lf",&diemtb);
+        node *newnode=(node*)malloc(sizeof(node));
+	    strcpy(newnode->data.hoten,hoten);
+	    newnode->data.diem=diemtb;
+	    newnode->data.tuoi=tuoi;
+	    newnode->next=NULL;
+	    if(*head==NULL){
+	    	*head=newnode;
+		}
+		else{
+		  node *tem =*head;
+		  while(tem->next!=NULL){
+			tem=tem->next;
+		  }
+		  tem->next=newnode;
+	    }
+		printf("Co nhap nua khong?\n1.ko  2.co ");
+        fflush(stdin);
+        chon=getchar();
+    }while (chon!='1');
+}
+
+void inds (node *head){
+	int stt=0;
+	if (head==NULL){
+		printf("danh sach rong\n");
+		return;
+	}
+	printf("\t\t danh sach sinh vien\n");
+	  printf("%5s %20s %10s %10s \n", "STT", "Ho ten", "Tuoi", "Diem TB");
+	while (head!=NULL){
+		printf("%5d %20s %10d %10.2lf\n",++stt,head->data.hoten,head->data.tuoi,head->data.diem);
+		head=head->next;
+	}
+}
+
+void chen (node **head){
+	fflush(stdin);
+	char ht[25],ht1[25];int tuoi;double diemtb;
+	printf("ho va ten hoc sinh can chen :");
+	gets(ht);
+	printf("tuoi :"); scanf("%d",&tuoi);
+	printf("diem TB:"); scanf("%lf",&diemtb);
+	printf("muon chen vao sau sv :");
+	fflush(stdin);gets(ht1);
+	node *p_tim =(node*)malloc(sizeof(node));
+	strcpy(p_tim->data.hoten,ht1);
+	node *newnode=(node*)malloc(sizeof(node));
+	strcpy(newnode->data.hoten,ht);
+	newnode->data.diem=diemtb;
+	newnode->data.tuoi=tuoi;
+	node *tem=*head;
+	
+	while (strcmp(p_tim->data.hoten,tem->data.hoten)!=0){
+		tem=tem->next;
+		if (tem==NULL){
+	       printf("    ko tim thay sv muon chen sau\n");
+	       free(newnode);
+        	return;}
+	}
+	if( tem->next==NULL){
+		tem->next=newnode;
+		newnode->next=NULL;}
+	else{
+	newnode->next=tem->next;
+	tem->next=newnode;
+    }
+	    printf("da chen xong\n");
+}
+
+void xoa (node **head){
+	char ht1[25];
+	printf("nhap ho ten sinh vien can xoa:");
+	fflush(stdin);gets(ht1);
+	node *tem=*head;
+	node *truoc=NULL;
+	while (strcmp(ht1,tem->data.hoten)!=0){
+		truoc =tem;
+		tem=tem->next;
+		if (tem==NULL){
+	       printf("   ko tim thay sv muon xoa\n");
+        	return;}
+	}
+	// neu xoa node dau tien
+	if( truoc==NULL){
+		*head=tem->next;
+	}
+	else{
+		truoc->next=tem->next;
+	}
+	free(tem);
+	printf(" \nda xoa xong\n\n");
+	
+}
+
+void sua (node **head){
+    char ht[25];
+  	printf("nhap ho ten sinh vien can sua:");fflush(stdin);
+  	gets(ht);
+  	node *tem =*head;
+     while (strcmp(ht,tem->data.hoten)!=0){
+		tem=tem->next;
+    	if (tem==NULL){
+	       printf("   ko tim thay sv muon sua\n");
+        	return;}}
+    printf("nhap ten sv da sua:");
+    char ht1[25];fflush(stdin);gets(ht1);
+     strcpy(tem->data.hoten,ht1);
+     printf("da sua xong\n");}
+
+
+int main(){
+	node *head = NULL;
+	while (1){
+		printf("-----------------\n");
+		printf("1.tao ds sinh vien\n");
+		printf("2.in ds sinh vien\n");
+		printf("3.chen them 1 sv\n");
+		printf("4.xoa 1 sv\n");
+		printf("5.sua 1 sv\n");
+		printf("6.thoat\n");
+    	printf("-----------------\n");
+    	int lc ;
+		printf("lc la:");scanf("%d",&lc);
+        if (lc==1) {
+		    tao_ds(&head);}
+    	else if(lc==2){
+    		inds(head);
+		}
+		else if(lc==3){
+			chen(&head);
+		}	
+		else if (lc==4){
+			xoa (&head);
+		}
+		else if( lc==5){
+			sua (&head);
+		}
+		else if(lc==6){
+			break;
+		}
+		}
+		printf("-----------------\n");
+	return 0;
+}
